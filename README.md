@@ -33,7 +33,7 @@
     "wario-marketplace": {
       "source": {
         "source": "github",
-        "repo": "your-github-username/wario-config"
+        "repo": "MrSissel/myclaude"
       }
     }
   },
@@ -42,8 +42,6 @@
   }
 }
 ```
-
-> 将 `your-github-username/wario-config` 替换为你的 GitHub 仓库地址。
 
 配置好后，打开任意项目时 Claude Code 会自动提示安装 `omo-workflow`，也可以手动执行：
 
