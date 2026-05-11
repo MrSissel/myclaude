@@ -1,0 +1,38 @@
+{
+  "version": 2,
+  "agent_aliases": {
+    "explore": "code-scout",
+    "implement": "deep",
+    "visual-engineering": "visual-engineering",
+    "deep": "deep",
+    "quick": "quick",
+    "writing": "writing"
+  },
+  "categories": {
+    "visual-engineering": {
+      "description": "Frontend, UI/UX, design, styling, animation.",
+      "default_skills": ["frontend-ui-ux"],
+      "route": {
+        "agent": "visual-engineering"
+      }
+    },
+    "deep": {
+      "description": "Deep implementation work.",
+      "route": {
+        "agent": "deep"
+      }
+    },
+    "quick": {
+      "description": "Small fixes and low-complexity edits.",
+      "route": {
+        "agent": "quick"
+      }
+    },
+    "writing": {
+      "description": "Documentation, prose, and technical writing.",
+      "route": {
+        "agent": "writing"
+      }
+    }
+  }
+}

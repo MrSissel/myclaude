@@ -1,0 +1,1 @@
+Conventional Commits format (feat/fix/refactor/chore), branch naming conventions (type/ticket-description), clean history preservation (interactive rebase before merge), meaningful commit messages with scope and body.

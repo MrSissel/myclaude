@@ -1,0 +1,1 @@
+Chrome DevTools mastery (Elements, Console, Network, Performance, Application tabs), network request analysis (waterfall, timing, payload inspection), Lighthouse performance profiling, responsive mode debugging, source maps.

@@ -1,0 +1,1 @@
+E2E test patterns with Playwright, Page Object Model architecture, locator best practices (role/text selectors preferred), assertion patterns (toBeVisible, toHaveText), test isolation, parallel execution, screenshot comparison.

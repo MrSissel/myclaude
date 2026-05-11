@@ -1,0 +1,87 @@
+{
+  "version": 2,
+  "agent_aliases": {
+    "explore": "code-scout",
+    "Explore": "code-scout",
+    "scout": "code-scout",
+    "oracle": "oracle",
+    "metis": "metis",
+    "momus": "momus",
+    "librarian": "librarian",
+    "hephaestus": "hephaestus",
+    "implement": "deep",
+    "general-purpose": "deep",
+    "frontend": "visual-engineering",
+    "frontend-ui-ux-engineer": "frontend-ui-ux-engineer",
+    "visual-engineering": "visual-engineering",
+    "ultrabrain": "ultrabrain",
+    "deep": "deep",
+    "artistry": "artistry",
+    "quick": "quick",
+    "unspecified-low": "unspecified-low",
+    "unspecified-high": "unspecified-high",
+    "document-writer": "document-writer",
+    "writing": "writing",
+    "review": "code-reviewer",
+    "architect": "code-architect",
+    "Plan": "code-architect",
+    "plan": "code-architect",
+    "code-explorer": "code-explorer",
+    "code-reviewer": "code-reviewer",
+    "code-architect": "code-architect",
+    "code-scout": "code-scout",
+    "multimodal-looker": "multimodal-looker",
+    "sisyphus-junior": "sisyphus-junior"
+  },
+  "categories": {
+    "visual-engineering": {
+      "description": "Frontend, UI/UX, design, styling, animation.",
+      "default_skills": ["frontend-ui-ux"],
+      "route": {
+        "agent": "visual-engineering"
+      }
+    },
+    "ultrabrain": {
+      "description": "Hard, logic-heavy tasks that need a stronger implementation agent.",
+      "route": {
+        "agent": "ultrabrain"
+      }
+    },
+    "deep": {
+      "description": "Goal-oriented autonomous problem-solving and deep implementation work.",
+      "route": {
+        "agent": "deep"
+      }
+    },
+    "artistry": {
+      "description": "Creative or unconventional problem-solving tasks.",
+      "route": {
+        "agent": "artistry"
+      }
+    },
+    "quick": {
+      "description": "Trivial tasks such as typos and small single-file fixes.",
+      "route": {
+        "agent": "quick"
+      }
+    },
+    "unspecified-low": {
+      "description": "Low-effort tasks that do not fit another category cleanly.",
+      "route": {
+        "agent": "unspecified-low"
+      }
+    },
+    "unspecified-high": {
+      "description": "High-effort tasks that do not fit another category cleanly.",
+      "route": {
+        "agent": "unspecified-high"
+      }
+    },
+    "writing": {
+      "description": "Documentation, prose, and technical writing.",
+      "route": {
+        "agent": "writing"
+      }
+    }
+  }
+}

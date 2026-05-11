@@ -1,0 +1,26 @@
+{
+  "description": "Unified omo hook entrypoint for activation, agent guard, and contextual prompt injection",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Agent",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ${CLAUDE_PLUGIN_ROOT}/hooks/agent_guard.py agent-guard"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ${CLAUDE_PLUGIN_ROOT}/hooks/agent_guard.py user-prompt-submit"
+          }
+        ]
+      }
+    ]
+  }
+}

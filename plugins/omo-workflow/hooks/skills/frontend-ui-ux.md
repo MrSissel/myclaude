@@ -1,0 +1,1 @@
+Atomic design principles, CSS custom properties for theming, component isolation patterns, accessibility-first approach (WCAG 2.1 AA), responsive design, design token system, BEM or CSS Modules methodology.

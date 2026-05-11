@@ -1,0 +1,117 @@
+{
+  "default_backend": "codex",
+  "default_model": "gpt-5.4",
+  "full-output": true,
+  "agents": {
+    "hephaestus": {
+      "backend": "codex",
+      "model": "gpt-5.3-codex",
+      "yolo": true,
+      "prompt_file": "references/hephaestus.md"
+    },
+    "oracle": {
+      "backend": "codex",
+      "model": "gpt-5.4",
+      "reasoning": "xhigh",
+      "yolo": true,
+      "prompt_file": "references/oracle.md"
+    },
+    "metis": {
+      "backend": "anthropic",
+      "model": "claude-opus-4-6",
+      "yolo": true,
+      "prompt_file": "references/metis.md"
+    },
+    "momus": {
+      "backend": "codex",
+      "model": "gpt-5.4",
+      "reasoning": "xhigh",
+      "yolo": true,
+      "prompt_file": "references/momus.md"
+    },
+    "code-scout": {
+      "backend": "claude",
+      "model": "MiniMax-M2.7-highspeed",
+      "disallowed_tools": ["WebSearch", "WebFetch"],
+      "prompt_file": "references/code-scout.md"
+    },
+    "librarian": {
+      "backend": "claude",
+      "model": "MiniMax-M2.7-highspeed",
+      "disallowed_tools": ["WebSearch", "WebFetch"],
+      "mcp_config": ["mcp.json"],
+      "prompt_file": "references/librarian.md"
+    },
+    "multimodal-looker": {
+      "backend": "codex",
+      "model": "gpt-5.4",
+      "prompt_file": "references/multimodal-looker.md"
+    },
+    "frontend-ui-ux-engineer": {
+      "backend": "claude",
+      "model": "MiniMax-M2.7-highspeed",
+      "disallowed_tools": ["WebSearch", "WebFetch"],
+      "prompt_file": "references/frontend-ui-ux-engineer.md"
+    },
+    "document-writer": {
+      "backend": "claude",
+      "model": "MiniMax-M2.7-highspeed",
+      "disallowed_tools": ["WebSearch", "WebFetch"],
+      "prompt_file": "references/document-writer.md"
+    },
+    "visual-engineering": {
+      "backend": "claude",
+      "model": "MiniMax-M2.7-highspeed",
+      "disallowed_tools": ["WebSearch", "WebFetch"],
+      "prompt_file": "references/frontend-ui-ux-engineer.md"
+    },
+    "ultrabrain": {
+      "backend": "codex",
+      "model": "gpt-5.4",
+      "reasoning": "xhigh",
+      "yolo": true,
+      "prompt_file": "references/hephaestus.md"
+    },
+    "deep": {
+      "backend": "codex",
+      "model": "gpt-5.4",
+      "reasoning": "high",
+      "yolo": true,
+      "prompt_file": "references/hephaestus.md"
+    },
+    "artistry": {
+      "backend": "codex",
+      "model": "gpt-5.4",
+      "reasoning": "high",
+      "yolo": true,
+      "prompt_file": "references/hephaestus.md"
+    },
+    "quick": {
+      "backend": "codex",
+      "model": "gpt-5.4",
+      "reasoning": "low",
+      "yolo": true,
+      "prompt_file": "references/sisyphus-junior.md"
+    },
+    "unspecified-low": {
+      "backend": "codex",
+      "model": "gpt-5.4",
+      "reasoning": "medium",
+      "yolo": true,
+      "prompt_file": "references/sisyphus-junior.md"
+    },
+    "unspecified-high": {
+      "backend": "codex",
+      "model": "gpt-5.4",
+      "reasoning": "high",
+      "yolo": true,
+      "prompt_file": "references/hephaestus.md"
+    },
+    "writing": {
+      "backend": "claude",
+      "model": "MiniMax-M2.7-highspeed",
+      "disallowed_tools": ["WebSearch", "WebFetch"],
+      "prompt_file": "references/document-writer.md"
+    }
+  }
+}

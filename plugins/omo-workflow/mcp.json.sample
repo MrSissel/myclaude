@@ -1,0 +1,24 @@
+{
+  "mcpServers": {
+    "context7": {
+      "args": ["-y", "@upstash/context7-mcp@latest"],
+      "command": "npx",
+      "env": {},
+      "type": "stdio"
+    },
+    "fetch": {
+      "args": ["mcp-server-fetch"],
+      "command": "uvx"
+    },
+    "open-websearch": {
+      "args": ["-y", "open-websearch@latest"],
+      "command": "npx",
+      "env": {
+        "ALLOWED_SEARCH_ENGINES": "duckduckgo,bing,brave",
+        "DEFAULT_SEARCH_ENGINE": "duckduckgo",
+        "MODE": "stdio"
+      },
+      "type": "stdio"
+    }
+  }
+}
