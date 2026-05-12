@@ -39,6 +39,11 @@ else
     PROJECT_NAME=""
 fi
 
+# Fallback to current directory if project name is still empty
+if [ -z "$PROJECT_NAME" ]; then
+    PROJECT_NAME=$(basename "$(pwd)" 2>/dev/null || echo "")
+fi
+
 if [ -z "$PROJECT_NAME" ]; then
     PROJECT_NAME="ClaudeCode"
 fi
