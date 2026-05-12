@@ -107,6 +107,7 @@
 ## 插件列表
 
 - **omo-workflow** `v1.1.0` - OmO 多 Agent 编排工作流，包含 `/omo`、`/omo-plan`、`/omo-execute` 三个入口，依赖 `codeagent-wrapper`
+- **macos-notification** `v1.0.0` - Claude Code macOS 原生通知插件，任务完成、错误、等待输入时发送桌面通知，零依赖
 
 ---
 
