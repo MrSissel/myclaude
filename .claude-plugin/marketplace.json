@@ -16,7 +16,7 @@
         },
         {
             "name": "macos-notification",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "description": "Claude Code macOS 原生通知插件。任务完成、错误、等待输入时发送桌面通知。零依赖。",
             "source": "./plugins/macos-notification"
         }
