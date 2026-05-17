@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "omo-workflow",
+  "version": "1.1.0",
+  "description": "OmO 多代理编排工作流。包含 /omo、/omo-plan、/omo-execute 三个入口。需要 codeagent-wrapper。",
+  "author": {
+    "name": "wario"
+  },
+  "license": "MIT",
+  "keywords": ["workflow", "automation", "task", "omo", "orchestration", "agent"],
+  "mcpServers": {}
+}
