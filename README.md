@@ -12,7 +12,10 @@
 {
   "extraKnownMarketplaces": {
     "wario-marketplace": {
-      "source": "/path/to/wario-config"
+      "source": {
+        "source": "directory",
+        "path": "/path/to/wario-config"
+      }
     }
   },
   "enabledPlugins": {
@@ -22,6 +25,23 @@
 ```
 
 > 将 `/path/to/wario-config` 替换为本仓库的实际路径。
+>
+> 如需指向 marketplace.json 文件，可使用 file 类型：
+> ```json
+> {
+>   "extraKnownMarketplaces": {
+>     "wario-marketplace": {
+>       "source": {
+>         "source": "file",
+>         "path": "/path/to/wario-config/.claude-plugin/marketplace.json"
+>       }
+>     }
+>   },
+>   "enabledPlugins": {
+>     "omo-workflow@wario-marketplace": true
+>   }
+> }
+> ```
 
 ### 方式 B：GitHub（跨机器同步）
 
