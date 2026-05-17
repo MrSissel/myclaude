@@ -17,19 +17,30 @@ import sys, json
 try:
     d = json.load(sys.stdin)
     def esc(s):
-        return str(s).replace("\"", "\\\"") if s is not None else ""
-    print(f"HOOK_EVENT=\"{esc(d.get(\"hook_event_name\"))}\"")
-    print(f"CWD=\"{esc(d.get(\"cwd\"))}\"")
-    print(f"LAST_ASSISTANT=\"{esc(d.get(\"last_assistant_message\"))}\"")
-    print(f"MSG=\"{esc(d.get(\"message\"))}\"")
-    print(f"ERROR=\"{esc(d.get(\"error\"))}\"")
-    print(f"ERROR_DETAILS=\"{esc(d.get(\"error_details\"))}\"")
-    print(f"NOTIFICATION_TYPE=\"{esc(d.get(\"notification_type\"))}\"")
-    print(f"TOOL_NAME=\"{esc(d.get(\"tool_name\"))}\"")
-    print(f"STDIN_TITLE=\"{esc(d.get(\"title\"))}\"")
+        if s is None:
+            return ""
+        return json.dumps(s, ensure_ascii=False)
+    print("HOOK_EVENT=%s" % esc(d.get("hook_event_name")))
+    print("CWD=%s" % esc(d.get("cwd")))
+    print("LAST_ASSISTANT=%s" % esc(d.get("last_assistant_message")))
+    print("MSG=%s" % esc(d.get("message")))
+    print("ERROR=%s" % esc(d.get("error")))
+    print("ERROR_DETAILS=%s" % esc(d.get("error_details")))
+    print("NOTIFICATION_TYPE=%s" % esc(d.get("notification_type")))
+    print("TOOL_NAME=%s" % esc(d.get("tool_name")))
+    print("STDIN_TITLE=%s" % esc(d.get("title")))
 except Exception:
     pass
 ' 2>/dev/null)"
+fi
+
+# Debug logging: write raw JSON to log file
+LOG_FILE="/tmp/claude-notification-debug.log"
+if [ -n "$DATA" ]; then
+    TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
+    echo "[$TIMESTAMP] HOOK_EVENT=$HOOK_EVENT NOTIFICATION_TYPE=$NOTIFICATION_TYPE" >> "$LOG_FILE"
+    echo "RAW_JSON: $DATA" >> "$LOG_FILE"
+    echo "---" >> "$LOG_FILE"
 fi
 
 # Extract project name from cwd basename
@@ -126,28 +137,28 @@ else
             TYPE_DISPLAY="收到回复"
             ;;
         *)
-            TYPE_DISPLAY=""
+            TITLE="$PROJECT_NAME - Unknown Event HOOK_EVENT=$HOOK_EVENT TYPE=$NOTIFICATION_TYPE"
+            BODY="See /tmp/claude-notification-debug.log for details"
+            SOUND="Glass"
             ;;
     esac
 
     if [ -n "$TYPE_DISPLAY" ]; then
         TITLE="$PROJECT_NAME - $TYPE_DISPLAY"
-    else
-        TITLE="$PROJECT_NAME - 新消息"
-    fi
 
-    # Use message field if available, fallback to last_assistant_message
-    if [ -n "$MSG" ]; then
-        BODY=$(truncate_body "$MSG")
-    elif [ -n "$LAST_ASSISTANT" ]; then
-        BODY=$(truncate_body "$LAST_ASSISTANT")
-    else
-        BODY="-"
-    fi
+        # Use message field if available, fallback to last_assistant_message
+        if [ -n "$MSG" ]; then
+            BODY=$(truncate_body "$MSG")
+        elif [ -n "$LAST_ASSISTANT" ]; then
+            BODY=$(truncate_body "$LAST_ASSISTANT")
+        else
+            BODY="-"
+        fi
 
-    # Override title if stdin provides one (prepend project name)
-    if [ -n "$STDIN_TITLE" ]; then
-        TITLE="$PROJECT_NAME - $STDIN_TITLE"
+        # Override title if stdin provides one (prepend project name)
+        if [ -n "$STDIN_TITLE" ]; then
+            TITLE="$PROJECT_NAME - $STDIN_TITLE"
+        fi
     fi
 fi
 
