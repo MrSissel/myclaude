@@ -1,0 +1,17 @@
+{
+  "name": "macos-notification",
+  "version": "1.0.1",
+  "description": "Claude Code macOS native notification plugin",
+  "author": {
+    "name": "wario"
+  },
+  "license": "MIT",
+  "userConfig": {
+    "debug": {
+      "type": "boolean",
+      "title": "Enable debug logging",
+      "description": "Write debug information to /tmp/claude-notification-debug.log to help troubleshoot notification issues",
+      "default": false
+    }
+  }
+}

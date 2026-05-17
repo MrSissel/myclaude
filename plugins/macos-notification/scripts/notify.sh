@@ -34,9 +34,9 @@ except Exception:
 ' 2>/dev/null)"
 fi
 
-# Debug logging: write raw JSON to log file
+# Debug logging: only when userConfig.debug = true
 LOG_FILE="/tmp/claude-notification-debug.log"
-if [ -n "$DATA" ]; then
+if [ "${CLAUDE_PLUGIN_OPTION_DEBUG}" = "true" ] && [ -n "$DATA" ]; then
     TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
     echo "[$TIMESTAMP] HOOK_EVENT=$HOOK_EVENT NOTIFICATION_TYPE=$NOTIFICATION_TYPE" >> "$LOG_FILE"
     echo "RAW_JSON: $DATA" >> "$LOG_FILE"

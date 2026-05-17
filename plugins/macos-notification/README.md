@@ -38,6 +38,38 @@ ln -s /path/to/wario-config/plugins/macos-notification ~/.claude/plugins/macos-n
 
 运行一个 Claude Code 任务，完成后应该能看到 macOS 通知弹出。
 
+## 配置选项
+
+### debug
+
+- **类型**: `boolean`
+- **默认值**: `false`
+- **作用**: 开启后将原始 JSON 数据和事件信息写入 `/tmp/claude-notification-debug.log`，便于排查通知问题
+
+**安装时配置**：
+
+通过 Marketplace 或手动安装插件时，会弹出配置对话框，可勾选"Enable debug logging"。
+
+**手动修改配置**：
+
+编辑 `~/.claude/settings.json`，在对应插件配置中添加：
+
+```json
+{
+  "pluginConfigs": {
+    "macos-notification": {
+      "options": {
+        "debug": true
+      }
+    }
+  }
+}
+```
+
+**生效方式**：
+
+配置通过环境变量 `CLAUDE_PLUGIN_OPTION_DEBUG` 传递给脚本，设置为 `"true"` 时开启调试日志。
+
 ## 通知类型说明
 
 | 事件 | 标题格式 | 内容 | 音效 |
