@@ -34,6 +34,7 @@ def send_notification(title: str, body: str, sound: str = "Glass") -> None:
             "--title", title,
             "--message", body,
             "--timeout", "10",
+            "--sound", sound,
         ],
         stdout=subprocess.DEVNULL,
         stderr=subprocess.DEVNULL,
