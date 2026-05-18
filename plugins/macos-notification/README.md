@@ -11,6 +11,23 @@
 - **智能内容处理**：通知内容自动截断到 80 字符，确保显示效果良好
 - **不同事件不同音效**：错误用 Basso 音效，完成用 Glass 音效，提示用 Ping 音效
 
+## 前提条件
+
+- **macOS 专用**：本插件仅支持 macOS 系统
+- **alerter 依赖**：插件使用 [alerter](https://github.com/vjeantet/alerter) CLI 发送通知，需要提前安装
+
+### 安装 alerter
+
+```bash
+brew install vjeantet/tap/alerter
+```
+
+### 验证安装
+
+```bash
+alerter --version
+```
+
 ## 安装步骤
 
 ### 方式 A：通过 Marketplace 安装（推荐）
@@ -83,6 +100,6 @@ ln -s /path/to/wario-config/plugins/macos-notification ~/.claude/plugins/macos-n
 
 ## 技术实现
 
-- 使用 `osascript` 调用 macOS 原生通知，不依赖外部工具
+- 使用 `alerter` CLI 发送 macOS 桌面通知
 - 通过 hook 机制捕获 Claude Code 事件
 - JSON 解析使用 Python3 保证兼容性
