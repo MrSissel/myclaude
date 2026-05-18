@@ -2,8 +2,12 @@
 import datetime
 import json
 import os
+import shutil
 import subprocess
 import sys
+
+if not shutil.which("alerter"):
+    raise RuntimeError("alerter not found. Run: brew install vjeantet/tap/alerter")
 
 LOG_FILE = f"/tmp/claude-notification-{os.getuid()}-debug.log"
 
@@ -24,13 +28,15 @@ def truncate(text: str, max_len: int = 80) -> str:
 
 
 def send_notification(title: str, body: str, sound: str = "Glass") -> None:
-    def escape(s: str) -> str:
-        return s.replace("\\", "\\\\").replace('"', '\\"')
-
-    script = f'display notification "{escape(body)}" with title "{escape(title)}" sound name "{escape(sound)}"'
-    subprocess.run(
-        ["osascript", "-e", script],
-        check=False,
+    subprocess.Popen(
+        [
+            "alerter",
+            "--title", title,
+            "--message", body,
+            "--timeout", "10",
+        ],
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
     )
 
 
