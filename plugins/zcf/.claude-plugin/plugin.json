@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "zcf",
+  "version": "1.0.0",
+  "description": "ZCF Git workflow utilities - smart branch management, worktree handling, commit message generation, and rollback support",
+  "author": {
+    "name": "wario"
+  },
+  "license": "MIT",
+  "keywords": ["git", "workflow", "branch", "commit", "worktree"],
+  "commands": [
+    "./commands/git-cleanBranches.md",
+    "./commands/git-commit.md",
+    "./commands/git-rollback.md",
+    "./commands/git-worktree.md"
+  ],
+  "outputStyles": [
+    "./output-styles/engineer-professional.cn.md",
+    "./output-styles/engineer-professional.en.md",
+    "./output-styles/laowang-engineer.cn.md",
+    "./output-styles/laowang-engineer.en.md",
+    "./output-styles/linus-torvalds.cn.md",
+    "./output-styles/linus-torvalds.en.md",
+    "./output-styles/nekomata-engineer.cn.md",
+    "./output-styles/nekomata-engineer.en.md",
+    "./output-styles/ojousama-engineer.cn.md",
+    "./output-styles/ojousama-engineer.en.md"
+  ]
+}
