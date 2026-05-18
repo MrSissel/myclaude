@@ -1,18 +1,18 @@
 #!/usr/bin/env python3
+import datetime
 import json
 import os
 import subprocess
 import sys
 
-LOG_FILE = "/tmp/claude-notification-debug.log"
+LOG_FILE = f"/tmp/claude-notification-{os.getuid()}-debug.log"
 
 
 def log_debug(*lines: str) -> None:
     if os.environ.get("CLAUDE_PLUGIN_OPTION_DEBUG") == "true":
-        import datetime
-
         ts = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         with open(LOG_FILE, "a", encoding="utf-8") as f:
+            os.fchmod(f.fileno(), 0o600)
             for line in lines:
                 f.write(f"[{ts}] {line}\n")
 
@@ -24,14 +24,12 @@ def truncate(text: str, max_len: int = 80) -> str:
 
 
 def send_notification(title: str, body: str, sound: str = "Glass") -> None:
-    env = os.environ.copy()
-    env["NOTIF_TITLE"] = title
-    env["NOTIF_BODY"] = body
-    env["NOTIF_SOUND"] = sound
-    script = '''display notification (system attribute "NOTIF_BODY") with title (system attribute "NOTIF_TITLE") sound name (system attribute "NOTIF_SOUND")'''
+    def escape(s: str) -> str:
+        return s.replace("\\", "\\\\").replace('"', '\\"')
+
+    script = f'display notification "{escape(body)}" with title "{escape(title)}" sound name "{escape(sound)}"'
     subprocess.run(
         ["osascript", "-e", script],
-        env=env,
         check=False,
     )
 
