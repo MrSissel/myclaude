@@ -20,8 +20,5 @@
     "./commands/review.md",
     "./commands/test.md",
     "./commands/think.md"
-  ],
-  "outputStyles": [
-    "./output-styles/linus-torvalds.md"
   ]
 }

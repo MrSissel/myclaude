@@ -23,21 +23,25 @@
 }
 ```
 
-**第二步**：在 `enabledPlugins` 中启用本插件：
+**第二步（以下两种方式任选其一）**：
 
-```json
-{
-  "enabledPlugins": {
-    "development-essentials@wario-marketplace": true
+- **方式 A — 配置文件启用**：在 `~/.claude/settings.json` 的 `enabledPlugins` 中添加：
+
+  ```json
+  {
+    "enabledPlugins": {
+      "development-essentials@wario-marketplace": true
+    }
   }
-}
-```
+  ```
 
-**第三步**：安装命令：
+  添加后**重启 Claude Code** 即可生效。
 
-```
-/plugin install development-essentials@wario-marketplace
-```
+- **方式 B — 命令安装**：在 Claude Code 中执行：
+
+  ```
+  /plugin install development-essentials@wario-marketplace
+  ```
 
 安装完成后，在 Claude Code 中直接输入 `/` 前缀命令即可调用，例如：
 

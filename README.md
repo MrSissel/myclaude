@@ -6,7 +6,7 @@
 
 ### 方式 A：本地路径（单机使用）
 
-在 `~/.claude/settings.json` 中添加：
+在 `~/.claude/settings.json` 中添加 marketplace：
 
 ```json
 {
@@ -17,16 +17,13 @@
         "path": "/path/to/wario-config"
       }
     }
-  },
-  "enabledPlugins": {
-    "omo-workflow@wario-marketplace": true
   }
 }
 ```
 
 > 将 `/path/to/wario-config` 替换为本仓库的实际路径。
 >
-> 如需指向 marketplace.json 文件，可使用 file 类型：
+> 如需指向 marketplace.json 文件，可使用 `file` 类型：
 > ```json
 > {
 >   "extraKnownMarketplaces": {
@@ -36,16 +33,13 @@
 >         "path": "/path/to/wario-config/.claude-plugin/marketplace.json"
 >       }
 >     }
->   },
->   "enabledPlugins": {
->     "omo-workflow@wario-marketplace": true
 >   }
 > }
 > ```
 
 ### 方式 B：GitHub（跨机器同步）
 
-在 `~/.claude/settings.json` 中添加：
+在 `~/.claude/settings.json` 中添加 marketplace：
 
 ```json
 {
@@ -56,18 +50,35 @@
         "repo": "MrSissel/myclaude"
       }
     }
-  },
-  "enabledPlugins": {
-    "omo-workflow@wario-marketplace": true
   }
 }
 ```
 
-配置好后，打开任意项目时 Claude Code 会自动提示安装 `omo-workflow`，也可以手动执行：
+### 启用插件（以下两种方式任选其一）
 
-```
-/plugin install omo-workflow@wario-marketplace
-```
+- **方式 A — 配置文件启用**：在 `~/.claude/settings.json` 的 `enabledPlugins` 中添加需要的插件，例如：
+
+  ```json
+  {
+    "enabledPlugins": {
+      "omo-workflow@wario-marketplace": true,
+      "macos-notification@wario-marketplace": true,
+      "zcf@wario-marketplace": true,
+      "development-essentials@wario-marketplace": true
+    }
+  }
+  ```
+
+  添加后**重启 Claude Code** 即可生效。
+
+- **方式 B — 命令安装**：在 Claude Code 中执行：
+
+  ```
+  /plugin install omo-workflow@wario-marketplace
+  /plugin install macos-notification@wario-marketplace
+  /plugin install zcf@wario-marketplace
+  /plugin install development-essentials@wario-marketplace
+  ```
 
 ---
 
