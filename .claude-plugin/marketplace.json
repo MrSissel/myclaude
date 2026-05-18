@@ -25,6 +25,12 @@
             "version": "1.0.0",
             "description": "ZCF Git workflow utilities - smart branch management, worktree handling, commit message generation, and rollback support",
             "source": "./plugins/zcf"
+        },
+        {
+            "name": "development-essentials",
+            "version": "1.0.0",
+            "description": "Claude Code 核心开发命令套件，包含 /ask、/code、/debug、/test、/review 等 11 个开发命令",
+            "source": "./plugins/development-essentials"
         }
     ]
 }

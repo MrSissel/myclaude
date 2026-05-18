@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "development-essentials",
+  "version": "1.0.0",
+  "description": "Core development command suite providing essential daily development commands including /ask, /code, /debug, /test, /review, /optimize, /bugfix, /refactor, /docs, /think, and /enhance-prompt. No workflow overhead, execute development tasks directly.",
+  "author": {
+    "name": "wario"
+  },
+  "license": "MIT",
+  "keywords": ["development", "code", "debug", "test", "review", "optimize", "refactor", "docs"],
+  "commands": [
+    "./commands/ask.md",
+    "./commands/bugfix.md",
+    "./commands/code.md",
+    "./commands/debug.md",
+    "./commands/docs.md",
+    "./commands/enhance-prompt.md",
+    "./commands/optimize.md",
+    "./commands/refactor.md",
+    "./commands/review.md",
+    "./commands/test.md",
+    "./commands/think.md"
+  ],
+  "outputStyles": [
+    "./output-styles/linus-torvalds.md"
+  ]
+}
